@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a 
               href="#ppdb" 
-              className="px-6 py-3 rounded-xl bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-medium text-xs sm:text-sm transition-all shadow-lg hover:shadow-blue-600/30"
+              className="px-6 py-3 rounded-full bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-medium text-xs sm:text-sm transition-all shadow-lg hover:shadow-blue-600/30"
             >
               Daftar PPDB Sekarang ↗
             </a>
@@ -39,7 +39,7 @@ export default function Hero() {
               href="https://wa.me/6280000000000" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="px-6 py-3 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 text-white font-medium text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all shadow-lg"
+              className="px-6 py-3 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white font-medium text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all shadow-lg"
             >
               Konsultasi via WhatsApp
             </a>

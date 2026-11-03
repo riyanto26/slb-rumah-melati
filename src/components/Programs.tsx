@@ -1,10 +1,10 @@
-import { photos, programs } from '../data/schoolData'
+import { programs } from '../data/schoolData'
 
 export default function Programs() {
   return (
     <section className="program section shell" id="program">
       <div className="program-visual">
-        <img src={photos.class} alt="Pendamping belajar membantu siswa di kelas" />
+        <img src="/program-image.png" alt="Kegiatan siswa dalam program belajar SLB Rumah Melati" />
         <div className="visual-badge"><b>4+</b><span>Program aktivitas penunjang</span></div>
       </div>
       <div className="program-content">

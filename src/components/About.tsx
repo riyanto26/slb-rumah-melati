@@ -1,14 +1,9 @@
-import { photos } from '../data/schoolData'
-
 export default function About() {
   const galleryStrips = [
-    photos.class,
-    photos.story,
-    photos.study,
-    photos.art,
-    photos.hero,
-    photos.class,
-    photos.study
+    '/about1.png',
+    '/about2.png',
+    '/about3.png',
+    '/about4.png',
   ]
 
   const stripStyles = [
@@ -16,9 +11,6 @@ export default function About() {
     { rotate: 'rotate-[8deg]', translate: 'translate-y-1' },
     { rotate: 'rotate-[-6deg]', translate: 'translate-y-0' },
     { rotate: 'rotate-[8deg]', translate: 'translate-y-0' },
-    { rotate: 'rotate-[-6deg]', translate: 'translate-y-1' },
-    { rotate: 'rotate-[8deg]', translate: 'translate-y-3' },
-    { rotate: 'rotate-[10deg]', translate: 'translate-y-4' },
   ]
 
   const missionSteps = [
@@ -90,16 +82,16 @@ export default function About() {
 
       {/* Process Steps Section - Mengikuti lebar Quick Info */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="mb-12 p-8 sm:p-10 rounded-3xl bg-[#1d4ed8] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
-          <div className="max-w-3xl flex items-center gap-5 -translate-y-4">
+        <div className="mb-12 p-6 sm:p-10 rounded-3xl bg-[#1d4ed8] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+          <div className="w-full max-w-3xl flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-5 md:-translate-y-4">
             <span className="shrink-0 whitespace-nowrap text-xs font-semibold uppercase tracking-widest text-white underline decoration-2 underline-offset-4">
               Visi Utama
             </span>
-            <blockquote className="self-center text-xl sm:text-2xl font-normal leading-relaxed text-gray-100">
+            <blockquote className="w-full self-center text-lg sm:text-2xl font-normal leading-relaxed text-gray-100">
               “Mengembangkan potensi diri anak berkebutuhan khusus untuk menjadi pribadi yang mandiri dan berdaya.”
             </blockquote>
           </div>
-          <div className="px-5 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium text-amber-200 whitespace-nowrap">
+          <div className="px-5 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium text-amber-200">
             SLB Rumah Melati • Bekasi Utara
           </div>
         </div>

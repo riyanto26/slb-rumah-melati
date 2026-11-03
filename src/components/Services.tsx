@@ -1,7 +1,12 @@
-import { photos, services } from '../data/schoolData'
+import { services } from '../data/schoolData'
 
 export default function Services() {
-  const servicePhotos = [photos.class, photos.story, photos.study, photos.art]
+  const servicePhotos = [
+    '/image-services1.png',
+    '/image-services2.png',
+    '/image-services3.png',
+    '/image-services4.png',
+  ]
 
   return (
     <section className="services section" id="terapi">
