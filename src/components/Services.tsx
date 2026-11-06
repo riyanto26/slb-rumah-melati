@@ -1,5 +1,8 @@
 import { services } from '../data/schoolData'
 
+const therapyInquiryForm =
+  'https://docs.google.com/forms/d/e/1FAIpQLScQjU5oRuYpg7ruC0CUCsPwDiGiQ9qUnDY_Gfm-Z_liLaCbVQ/viewform?usp=publish-editor'
+
 export default function Services() {
   const servicePhotos = [
     '/image-services1.png',
@@ -19,7 +22,7 @@ export default function Services() {
               Kolaborasi guru, terapis, dan orang tua dalam program yang terukur dan penuh empati.
             </p>
           </div>
-          <a className="service-cta" href="#kontak">
+          <a className="service-cta" href={therapyInquiryForm} target="_blank" rel="noopener noreferrer">
             Konsultasi layanan <i className="ri-arrow-right-up-line" aria-hidden="true" />
           </a>
         </div>
@@ -29,7 +32,13 @@ export default function Services() {
             <article className="service-gallery-card" key={number}>
               <img src={servicePhotos[index]} alt={`Kegiatan ${title}`} loading="lazy" />
               <div className="service-gallery-shade" />
-              <a className="service-gallery-arrow" href="#kontak" aria-label={`Konsultasi ${title}`}>
+              <a
+                className="service-gallery-arrow"
+                href={therapyInquiryForm}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Konsultasi ${title}`}
+              >
                 <i className="ri-arrow-right-up-line" aria-hidden="true" />
               </a>
               <div className="service-gallery-copy">

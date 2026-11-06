@@ -117,7 +117,9 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#ppdb"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSenQF6Q0M-4jSSQfPbalEezsyK3-k0J1-uxV7SRqxEV3SW1iw/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-1 inline-flex min-h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/20 bg-[var(--primary)] px-4 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-xl transition-colors hover:bg-[var(--primary-dark)]"
             >
               Daftar PPDB
@@ -185,7 +187,13 @@ export default function Navbar() {
           </div>
           <div className="mobile-menu-bottom">
             <p>Pendidikan dengan kasih, tumbuh dengan percaya diri.</p>
-            <a onClick={closeMenu} href="#ppdb" className="mobile-menu-cta">
+            <a
+              onClick={closeMenu}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSenQF6Q0M-4jSSQfPbalEezsyK3-k0J1-uxV7SRqxEV3SW1iw/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-menu-cta"
+            >
               Daftar PPDB <i className="ri-arrow-right-line" aria-hidden="true" />
             </a>
           </div>

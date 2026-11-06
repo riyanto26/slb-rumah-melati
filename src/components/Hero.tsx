@@ -17,7 +17,12 @@ export default function Hero() {
           dengan pendekatan penuh kasih sayang, ramah anak, dan profesional.
         </p>
         <div className="hero-landing-actions">
-          <a href="#ppdb" className="hero-landing-primary">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSenQF6Q0M-4jSSQfPbalEezsyK3-k0J1-uxV7SRqxEV3SW1iw/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-landing-primary"
+          >
             Daftar PPDB Sekarang <i className="ri-arrow-right-up-line" aria-hidden="true" />
           </a>
           <a

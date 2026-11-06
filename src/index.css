@@ -434,10 +434,11 @@ img {
 .hero-social-links {
   position: absolute;
   z-index: 2;
-  right: max(28px, calc((100% - 1180px) / 2));
+  left: 50%;
   bottom: 24px;
   display: flex;
   gap: 8px;
+  transform: translateX(-50%);
 }
 
 .hero-social-links a {
@@ -1825,11 +1826,7 @@ footer {
   .hero-landing-content > p { margin: 20px auto 22px; font-size: 13px; }
   .hero-landing-actions { flex-direction: column; gap: 9px; }
   .hero-landing-primary, .hero-landing-secondary { width: min(100%, 290px); min-height: 44px; }
-  .hero-social-links {
-    right: 50%;
-    bottom: 16px;
-    transform: translateX(50%);
-  }
+  .hero-social-links { bottom: 16px; }
   .hero-social-links a { width: 36px; height: 36px; font-size: 17px; }
   .about-gallery-wrap { margin: 0 8px 48px; padding: 10px 0; }
   .about-gallery {
