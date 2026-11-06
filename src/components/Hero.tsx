@@ -1,57 +1,69 @@
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-16 px-6 sm:px-12 md:px-16" id="beranda">
-      {/* Full Screen Background Image & Dark Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/hero-image.png" 
-          alt="Suasana Sekolah SLB Rumah Melati" 
-          className="w-full h-full object-cover"
-        />
-        {/* Cinematic Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30" />
+    <section className="hero-landing" id="beranda">
+      <div className="hero-landing-image" aria-hidden="true">
+        <img src="/hero-image.webp" alt="" />
+        <div className="hero-landing-image-blur" />
+        <div className="hero-landing-image-fade" />
       </div>
 
-      {/* Hero Content Wrapper */}
-      <div className="relative z-10 max-w-4xl mx-auto w-full flex flex-col items-center gap-8 text-center text-white">
-        
-        {/* Left Side: Headline & Copy & CTAs */}
-        <div className="max-w-3xl">
-          {/* Main Headline (Aksen warna kuning disesuaikan dengan warna logo YPP ABKI) */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.16] mb-6">
-            Mendampingi Ananda Istimewa Menuju <span className="font-medium text-[#facc15]">Kemandirian.</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed font-light">
-            Sekolah khusus terpadu untuk anak Autisme, Down Syndrome, dan Hambatan Belajar dengan pendekatan penuh kasih sayang, ramah anak, dan profesional.
-          </p>
-
-          {/* Action Buttons (Menggunakan warna --primary Biru Elektrik dari logo) */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
-              href="#ppdb" 
-              className="px-6 py-3 rounded-full bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-medium text-xs sm:text-sm transition-all shadow-lg hover:shadow-blue-600/30"
-            >
-              Daftar PPDB Sekarang ↗
-            </a>
-            <a 
-              href="https://wa.me/6280000000000" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="px-6 py-3 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-white font-medium text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all shadow-lg"
-            >
-              Konsultasi via WhatsApp
-            </a>
-          </div>
+      <div className="hero-landing-content">
+        <h1>
+          <span>Mendampingi Ananda Istimewa</span>
+          <span>Menuju Kemandirian.</span>
+        </h1>
+        <p>
+          Sekolah khusus terpadu untuk anak Autisme, Down Syndrome, dan Hambatan Belajar
+          dengan pendekatan penuh kasih sayang, ramah anak, dan profesional.
+        </p>
+        <div className="hero-landing-actions">
+          <a href="#ppdb" className="hero-landing-primary">
+            Daftar PPDB Sekarang <i className="ri-arrow-right-up-line" aria-hidden="true" />
+          </a>
+          <a
+            href="https://wa.me/6280000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-landing-secondary"
+          >
+            Konsultasi via WhatsApp
+          </a>
         </div>
-
-        {/* Right Side: Bottom Tag Highlights */}
-        <div className="text-xs text-gray-300 tracking-wider font-medium opacity-80">
-          Autisme. Down Syndrome. Hambatan Belajar.
-        </div>
-
       </div>
+      <nav className="hero-social-links" aria-label="Media sosial SLB Rumah Melati">
+        <a
+          href="https://www.instagram.com/slbrumahmelati?dlrf=MW1udmRjODVkb2pndA=="
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram SLB Rumah Melati"
+        >
+          <i className="ri-instagram-line" aria-hidden="true" />
+        </a>
+        <a
+          href="https://www.tiktok.com/@slb.rumah.melati?_r=1&_t=ZS-9B7LF76SNee"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok SLB Rumah Melati"
+        >
+          <i className="ri-tiktok-line" aria-hidden="true" />
+        </a>
+        <a
+          href="https://youtube.com/@slbrumahmelati4933?si=D1GmnCgEJ5jx4f91"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube SLB Rumah Melati"
+        >
+          <i className="ri-youtube-line" aria-hidden="true" />
+        </a>
+        <a
+          href="https://www.facebook.com/share/1DrCscExqD/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook SLB Rumah Melati"
+        >
+          <i className="ri-facebook-line" aria-hidden="true" />
+        </a>
+      </nav>
     </section>
   )
 }

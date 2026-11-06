@@ -1,16 +1,25 @@
+import { useState } from 'react'
+
 export default function About() {
   const galleryStrips = [
-    '/about1.png',
-    '/about2.png',
-    '/about3.png',
-    '/about4.png',
+    '/gallery-1.png',
+    '/gallery-2.png',
+    '/gallery-3.png',
+    '/gallery-4.png',
   ]
 
-  const stripStyles = [
-    { rotate: 'rotate-[-10deg]', translate: 'translate-y-3' },
-    { rotate: 'rotate-[8deg]', translate: 'translate-y-1' },
-    { rotate: 'rotate-[-6deg]', translate: 'translate-y-0' },
-    { rotate: 'rotate-[8deg]', translate: 'translate-y-0' },
+  const galleryItems = [
+    { src: galleryStrips[0], alt: 'Aktivitas siswa SLB Rumah Melati' },
+    { src: galleryStrips[1], alt: 'Kegiatan belajar bersama di SLB Rumah Melati' },
+    { src: galleryStrips[2], alt: 'Suasana kegiatan sekolah SLB Rumah Melati' },
+    { src: galleryStrips[3], alt: 'Momen belajar siswa SLB Rumah Melati' },
+    { src: galleryStrips[0], alt: 'Lingkungan belajar SLB Rumah Melati' },
+  ]
+  const [featuredGalleryIndex, setFeaturedGalleryIndex] = useState(2)
+  const orderedGalleryItems = [
+    ...galleryItems.filter((_, index) => index !== featuredGalleryIndex).slice(0, 2),
+    galleryItems[featuredGalleryIndex],
+    ...galleryItems.filter((_, index) => index !== featuredGalleryIndex).slice(2),
   ]
 
   const missionSteps = [
@@ -39,11 +48,11 @@ export default function About() {
       {/* Top Section - Mengikuti lebar Quick Info */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-          <div className="lg:col-span-6 flex items-center gap-5">
-            <span className="h-32 w-10 shrink-0 py-4 text-center text-xs font-semibold uppercase tracking-widest text-[#1d4ed8] underline decoration-2 underline-offset-4 [writing-mode:vertical-rl] rotate-180">
+          <div className="section-heading-stack lg:col-span-6">
+            <span className="section-badge">
               Tentang Kami
             </span>
-            <h2 className="text-3xl sm:text-5xl font-normal text-gray-900 tracking-tight leading-[1.12]">
+            <h2 className="font-georgia text-3xl sm:text-5xl font-normal text-gray-900 tracking-tight leading-[1.12]">
               Lingkungan aman untuk bertumbuh tanpa batas.
             </h2>
           </div>
@@ -58,23 +67,23 @@ export default function About() {
         </div>
       </div>
 
-      {/* Full-Bleed Infinite Marquee Animation */}
-      <div className="w-full overflow-hidden py-10 mb-20">
-        <div className="animate-marquee flex items-center gap-4 sm:gap-6">
-          {[...galleryStrips, ...galleryStrips].map((imgSrc, index) => {
-            const style = stripStyles[index % stripStyles.length]
+      <div className="about-gallery-wrap">
+        <div className="about-gallery" aria-label="Galeri kegiatan SLB Rumah Melati">
+          {orderedGalleryItems.map((item, index) => {
+            const itemIndex = galleryItems.indexOf(item)
+            const isFeatured = itemIndex === featuredGalleryIndex
 
             return (
-              <div 
-                key={index} 
-                className={`w-[180px] sm:w-[240px] md:w-[270px] h-[130px] sm:h-[175px] md:h-[195px] rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:rotate-0 flex-shrink-0 ${style.rotate} ${style.translate}`}
+              <button
+                type="button"
+                className={`about-gallery-item${isFeatured ? ' about-gallery-item-featured' : ''}`}
+                key={`${item.src}-${itemIndex}`}
+                aria-label={`${isFeatured ? 'Foto utama' : 'Perbesar foto'}: ${item.alt}`}
+                aria-pressed={isFeatured}
+                onClick={() => setFeaturedGalleryIndex(itemIndex)}
               >
-                <img 
-                  src={imgSrc} 
-                  alt={`Dokumentasi kegiatan SLB Rumah Melati ${index + 1}`} 
-                  className="w-full h-full object-cover" 
-                />
-              </div>
+                <img src={item.src} alt={item.alt} loading="lazy" />
+              </button>
             )
           })}
         </div>
@@ -83,11 +92,11 @@ export default function About() {
       {/* Process Steps Section - Mengikuti lebar Quick Info */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="mb-12 p-6 sm:p-10 rounded-3xl bg-[#1d4ed8] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
-          <div className="w-full max-w-3xl flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-5 md:-translate-y-4">
-            <span className="shrink-0 whitespace-nowrap text-xs font-semibold uppercase tracking-widest text-white underline decoration-2 underline-offset-4">
+          <div className="section-heading-stack w-full max-w-3xl">
+            <span className="section-badge section-badge-on-dark shrink-0 whitespace-nowrap">
               Visi Utama
             </span>
-            <blockquote className="w-full self-center text-lg sm:text-2xl font-normal leading-relaxed text-gray-100">
+            <blockquote className="font-georgia w-full self-center text-lg sm:text-2xl font-normal leading-relaxed text-gray-100">
               “Mengembangkan potensi diri anak berkebutuhan khusus untuk menjadi pribadi yang mandiri dan berdaya.”
             </blockquote>
           </div>
@@ -96,18 +105,18 @@ export default function About() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 border-r border-gray-300 bg-[#f7f7f6] md:grid-cols-3">
           {missionSteps.map((item, idx) => (
             <div 
               key={idx} 
-              className="relative p-8 rounded-3xl bg-white border border-gray-200/80 shadow-sm flex flex-col justify-between overflow-hidden group hover:border-blue-600/40 transition-all"
+              className="flex flex-col justify-between border-l border-gray-300 px-5 py-6 sm:px-6"
             >
               <div>
-                <div className="flex items-center justify-between mb-6">
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
                   <span className="text-2xl font-normal text-gray-900 tracking-tight font-sans">
                     {item.step} <span className="text-gray-400 text-lg">Misi</span>
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-blue-50 text-[#1d4ed8] text-xs font-semibold tracking-wide border border-blue-200/50">
+                  <span className="rounded-full border border-blue-200/70 bg-blue-50 px-3 py-1 text-xs font-semibold tracking-wide text-[#1d4ed8]">
                     {item.duration}
                   </span>
                 </div>
@@ -119,7 +128,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400 font-light">
+              <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-4 text-xs font-light text-gray-500">
                 <span>Pendidikan Inklusif Terpadu</span>
               </div>
             </div>

@@ -1,23 +1,20 @@
-import { photos } from '../data/schoolData'
-
 export default function Gallery() {
   const galleryItems = [
-    { image: photos.story, alt: 'Anak-anak mengikuti sesi bercerita bersama', caption: 'Ruang kelas interaktif' },
-    { image: photos.study, alt: 'Siswa belajar menulis dengan pendampingan', caption: 'Pendampingan personal' },
-    { image: photos.art, alt: 'Anak-anak berkegiatan kreatif bersama', caption: 'Aktivitas kreatif' },
-    { image: photos.class, alt: 'Suasana kegiatan belajar di kelas', caption: 'Kegiatan belajar' },
-    { image: photos.hero, alt: 'Suasana sekolah SLB Rumah Melati', caption: 'Lingkungan sekolah' },
+    { image: '/gallery-1.png', alt: 'Anak-anak mengikuti sesi bercerita bersama', caption: 'Ruang kelas interaktif' },
+    { image: '/gallery-2.png', alt: 'Siswa belajar menulis dengan pendampingan', caption: 'Pendampingan personal' },
+    { image: '/gallery-3.png', alt: 'Anak-anak berkegiatan kreatif bersama', caption: 'Aktivitas kreatif' },
+    { image: '/gallery-4.png', alt: 'Suasana kegiatan belajar di kelas', caption: 'Kegiatan belajar' },
   ]
   const columns = [galleryItems.slice(0, 3), galleryItems.slice(2)]
 
   return (
     <section className="gallery section shell" id="galeri">
       <div className="gallery-layout">
-        <div className="gallery-intro">
-          <p className="mb-6 inline-block text-xs font-semibold uppercase tracking-widest text-[#1d4ed8] underline decoration-2 underline-offset-4">
+        <div className="gallery-intro section-heading-stack">
+          <p className="section-badge">
             Fasilitas & Galeri
           </p>
-          <h2>Suasana belajar yang nyaman dan menyenangkan.</h2>
+          <h2 className="font-georgia">Suasana belajar yang nyaman dan menyenangkan.</h2>
         </div>
         <div className="gallery-columns">
           {columns.map((items, columnIndex) => (

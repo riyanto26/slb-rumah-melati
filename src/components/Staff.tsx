@@ -1,70 +1,49 @@
-import { useState } from 'react'
-import { staffMembers } from '../data/schoolData'
-
-export default function Staff() {
-  const biographies = [
-    'Mendampingi siswa mengenali potensi diri dan membangun kemandirian melalui kegiatan belajar yang terarah dan penuh perhatian.',
-    'Membantu siswa mengembangkan kemampuan komunikasi, menyampaikan kebutuhan, dan berinteraksi dengan lingkungan sekitar.',
-    'Mendukung keterampilan motorik dan aktivitas sehari-hari agar siswa semakin percaya diri dan mandiri.',
-    'Menciptakan suasana kelas yang aman dan menyenangkan agar setiap siswa dapat belajar sesuai ritmenya.',
-    'Membantu siswa membangun perilaku positif, fokus, dan kemampuan beradaptasi dalam keseharian.',
-    'Mendampingi siswa berlatih keterampilan sosial dan kemandirian dengan pendekatan yang penuh empati.',
+export default function Teachers() {
+  const staffList = [
+    { name: "Joko Retno, S.Pd.", role: "Kepala Sekolah" },
+    { name: "Pravita Sosia, S.Pd.", role: "Wakil Kepala Sekolah" },
+    { name: "Risci Desmita, S.Pd.", role: "Kurikulum" },
+    { name: "Novia Nindri Astuti, S.Psi.", role: "Kesiswaan" },
+    { name: "Dede Jamaludin", role: "Sarpras / Staf Umum" },
+    { name: "Nonik Muzayanah, S.Sos.I.", role: "Humas" },
+    { name: "Saridoni Batubara, S.Pd.", role: "Bendahara" },
+    { name: "Yayen, S.Pd.", role: "Sekretaris / Staf Guru" },
+    { name: "Narni Astriani, S.Pd.", role: "Staf Guru" },
+    { name: "Shannaz Pratiwi", role: "Staf Guru" },
+    { name: "Dedik Kurniawan, S.Pd.", role: "Koord. Olahraga / Staf Guru" },
+    { name: "Rann Utomo, A.Md.", role: "Koord. Kesenian / Staf Guru" },
+    { name: "Nova Pramesti, M.Pd.", role: "Tata Usaha" },
   ]
-  const slides = Array.from({ length: Math.ceil(staffMembers.length / 3) }, (_, index) =>
-    staffMembers.slice(index * 3, index * 3 + 3),
-  )
-  const [currentSlide, setCurrentSlide] = useState(0)
 
   return (
-    <section className="staff section">
-      <div className="shell staff-layout">
-        <div className="staff-intro">
-          <p className="mb-6 inline-block text-xs font-semibold uppercase tracking-widest text-[#1d4ed8] underline decoration-2 underline-offset-4">
-            Tenaga Pendidik
-          </p>
-          <h2>Hadir dengan hati, mendampingi dengan ilmu.</h2>
-          <p className="staff-intro-copy">
-            Tim kami bekerja bersama keluarga untuk memahami kebutuhan setiap anak dan mendukung proses tumbuh kembangnya.
+    <section className="bg-[#f7f7f6] py-20 sm:py-28" id="guru">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <div className="section-heading-stack section-heading-stack-center mb-16 text-center sm:mb-20">
+          <span className="section-badge">
+            Staf & Pengajar
+          </span>
+          <h2 className="font-georgia text-3xl font-normal leading-[1.12] tracking-tight text-gray-900 sm:text-5xl">
+            Hadir dengan hati, mendampingi dengan ilmu.
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm font-light leading-relaxed text-gray-600 sm:text-base">
+            Tenaga pendidik profesional dan berdedikasi tinggi dalam membersamai tumbuh kembang buah hati Anda.
           </p>
         </div>
-        <div className="staff-carousel">
-          <div className="staff-controls">
-            <span>{String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span>
-            <button
-              type="button"
-              onClick={() => setCurrentSlide((slide) => Math.max(0, slide - 1))}
-              disabled={currentSlide === 0}
-              aria-label="Tampilkan tenaga pendidik sebelumnya"
+
+        <div className="grid grid-cols-1 border-r border-gray-300 sm:grid-cols-2 lg:grid-cols-4">
+          {staffList.map((staff) => (
+            <div
+              key={staff.name}
+              className="border-l border-gray-300 px-5 py-6 sm:px-6"
             >
-              ←
-            </button>
-            <button
-              type="button"
-              onClick={() => setCurrentSlide((slide) => Math.min(slides.length - 1, slide + 1))}
-              disabled={currentSlide === slides.length - 1}
-              aria-label="Tampilkan tenaga pendidik berikutnya"
-            >
-              →
-            </button>
-          </div>
-          <div className="staff-viewport" aria-live="polite">
-            <div className="staff-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-              {slides.map((slide, slideIndex) => (
-                <div className="staff-slide" key={slideIndex}>
-                  {slide.map((member, memberIndex) => {
-                    const biographyIndex = slideIndex * 3 + memberIndex
-                    return (
-                      <article className="staff-card" key={member.name}>
-                        <img className="portrait" src={member.photo} alt={`Foto ${member.name}`} loading="lazy" />
-                        <div className="staff-identity"><h3>{member.name}</h3><p>{member.role}</p></div>
-                        <p className="staff-bio">{biographies[biographyIndex]}</p>
-                      </article>
-                    )
-                  })}
-                </div>
-              ))}
+              <span className="mb-1 block text-sm font-medium leading-snug text-gray-900">
+                {staff.name}
+              </span>
+              <span className="block text-sm font-light leading-snug text-gray-500">
+                  {staff.role}
+              </span>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

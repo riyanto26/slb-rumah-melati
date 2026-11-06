@@ -6,8 +6,10 @@ export default function Cta() {
       <span className="cta-decoration cta-decoration-green" aria-hidden="true" />
       <span className="cta-decoration cta-decoration-blue" aria-hidden="true" />
       <div className="cta-content">
-        <p className="cta-badge">Penerimaan Peserta Didik Baru</p>
-        <h2>Langkah kecil hari ini,<br /><span>masa depan mandiri nanti.</span></h2>
+        <div className="section-heading-stack section-heading-stack-center cta-heading-stack">
+          <p className="cta-badge">Penerimaan Peserta Didik Baru</p>
+          <h2 className="font-georgia">Langkah kecil hari ini,<br /><span>masa depan mandiri nanti.</span></h2>
+        </div>
         <p className="cta-copy">
           Temukan lingkungan belajar yang mendukung potensi dan kemandirian ananda.
           Mari mulai perjalanan bersama SLB Rumah Melati.

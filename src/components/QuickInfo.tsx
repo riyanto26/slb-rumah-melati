@@ -29,7 +29,7 @@ export default function QuickInfo() {
           {stats.map((item, idx) => (
             <div key={idx} className="flex flex-col justify-start">
               {/* Angka / Stat Besar & Tipis */}
-              <span className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-gray-900 mb-3 font-sans">
+              <span className="font-georgia mb-3 text-4xl font-normal tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                 {item.number}
               </span>
               
