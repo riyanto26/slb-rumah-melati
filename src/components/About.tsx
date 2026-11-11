@@ -2,10 +2,11 @@ import { useState } from 'react'
 
 export default function About() {
   const galleryStrips = [
-    '/gallery-1.png',
-    '/gallery-2.png',
-    '/gallery-3.png',
-    '/gallery-4.png',
+    '/about-1.webp',
+    '/about-2.webp',
+    '/about-3.webp',
+    '/about-4.webp',
+    '/about-5.webp',
   ]
 
   const galleryItems = [
@@ -13,7 +14,7 @@ export default function About() {
     { src: galleryStrips[1], alt: 'Kegiatan belajar bersama di SLB Rumah Melati' },
     { src: galleryStrips[2], alt: 'Suasana kegiatan sekolah SLB Rumah Melati' },
     { src: galleryStrips[3], alt: 'Momen belajar siswa SLB Rumah Melati' },
-    { src: galleryStrips[0], alt: 'Lingkungan belajar SLB Rumah Melati' },
+    { src: galleryStrips[4], alt: 'Lingkungan belajar SLB Rumah Melati' },
   ]
   const [featuredGalleryIndex, setFeaturedGalleryIndex] = useState(2)
   const orderedGalleryItems = [

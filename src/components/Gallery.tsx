@@ -1,11 +1,11 @@
 export default function Gallery() {
   const galleryItems = [
-    { image: '/gallery-1.png', alt: 'Anak-anak mengikuti sesi bercerita bersama', caption: 'Ruang kelas interaktif' },
-    { image: '/gallery-2.png', alt: 'Siswa belajar menulis dengan pendampingan', caption: 'Pendampingan personal' },
-    { image: '/gallery-3.png', alt: 'Anak-anak berkegiatan kreatif bersama', caption: 'Aktivitas kreatif' },
-    { image: '/gallery-4.png', alt: 'Suasana kegiatan belajar di kelas', caption: 'Kegiatan belajar' },
+    { image: '/gallery-1.png', alt: 'Ruang kelas dengan AC dan meja belajar', caption: 'Ruang Kelas Ber-AC & Nyaman' },
+    { image: '/gallery-2.png', alt: 'Ruang kelas dengan AC dan meja belajar', caption: 'Ruang Kelas Ber-AC & Nyaman' },
+    { image: '/about-1.webp', alt: 'Guru mendampingi tiga siswa saat belajar bersama', caption: 'Pendampingan Intensif (1 Guru : 3 Murid)' },
+    { image: '/about-2.webp', alt: 'Guru mendampingi siswa belajar di meja kelas', caption: 'Kegiatan Belajar dengan Pendampingan' },
   ]
-  const columns = [galleryItems.slice(0, 3), galleryItems.slice(2)]
+  const columns = [galleryItems.slice(0, 2), galleryItems.slice(2)]
 
   return (
     <section className="gallery section shell" id="galeri">
@@ -15,6 +15,9 @@ export default function Gallery() {
             Fasilitas & Galeri
           </p>
           <h2 className="font-georgia">Suasana belajar yang nyaman dan menyenangkan.</h2>
+          <p className="gallery-intro-copy">
+            Didukung fasilitas ruang kelas ber-AC serta rasio ideal 1 guru untuk 3 murid guna memastikan perhatian personal yang optimal bagi setiap anak.
+          </p>
         </div>
         <div className="gallery-columns">
           {columns.map((items, columnIndex) => (
