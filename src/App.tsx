@@ -8,20 +8,24 @@ import Staff from './components/Staff'
 import Gallery from './components/Gallery'
 import Cta from './components/Cta'
 import Footer from './components/Footer'
+import SplashScreen from './components/SplashScreen'
 
 export default function App() {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <QuickInfo />
-      <About />
-      <Services />
-      <Programs />
-      <Staff />
-      <Gallery />
-      <Cta />
-      <Footer />
-    </main>
+    <>
+      <SplashScreen />
+      <main>
+        <Navbar />
+        <Hero />
+        <QuickInfo />
+        <About />
+        <Services />
+        <Programs />
+        <Staff />
+        <Gallery />
+        <Cta />
+        <Footer />
+      </main>
+    </>
   )
 }

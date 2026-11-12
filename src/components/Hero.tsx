@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="hero-landing" id="beranda">
       <div className="hero-landing-image" aria-hidden="true">
-        <img src="/hero-image.webp" alt="" />
+        <img src="/hero-image.webp" alt="" fetchPriority="high" />
         <div className="hero-landing-image-blur" />
         <div className="hero-landing-image-fade" />
       </div>

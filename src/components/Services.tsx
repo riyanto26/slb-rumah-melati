@@ -185,51 +185,56 @@ export default function Services() {
             </div>
           </div>
 
-          <aside className="therapy-pricing" aria-labelledby="therapy-pricing-title">
-            <div className="therapy-pricing-heading">
-              <span className="therapy-pricing-icon">
-                <i className="ri-wallet-3-line" aria-hidden="true" />
-              </span>
-              <div>
-                <span className="therapy-album-eyebrow">Informasi biaya</span>
-                <h3 id="therapy-pricing-title">Biaya & Paket Terapi</h3>
+          <div className="therapy-pricing-slot">
+            <aside
+              className="therapy-pricing"
+              aria-labelledby="therapy-pricing-title"
+            >
+              <div className="therapy-pricing-heading">
+                <span className="therapy-pricing-icon">
+                  <i className="ri-wallet-3-line" aria-hidden="true" />
+                </span>
+                <div>
+                  <span className="therapy-album-eyebrow">Informasi biaya</span>
+                  <h3 id="therapy-pricing-title">Biaya & Paket Terapi</h3>
+                </div>
               </div>
-            </div>
 
-            <div className="therapy-price-row">
-              <div>
-                <span>Pendaftaran & asesmen</span>
-                <small>Formulir + asesmen</small>
+              <div className="therapy-price-row">
+                <div>
+                  <span>Pendaftaran & asesmen</span>
+                  <small>Formulir + asesmen</small>
+                </div>
+                <strong>Rp300.000</strong>
               </div>
-              <strong>Rp300.000</strong>
-            </div>
-            <div className="therapy-price-row">
-              <div>
-                <span>Biaya terapi</span>
-                <small>Wicara, perilaku, dan remedial</small>
+              <div className="therapy-price-row">
+                <div>
+                  <span>Biaya terapi</span>
+                  <small>Wicara, perilaku, dan remedial</small>
+                </div>
+                <strong>Rp120.000 <small>/ sesi</small></strong>
               </div>
-              <strong>Rp120.000 <small>/ sesi</small></strong>
-            </div>
 
-            <div className="therapy-deposit-note">
-              <span className="therapy-album-eyebrow">Minimal deposit 4 pertemuan</span>
-              <p>4 × Rp120.000 = Rp480.000</p>
-              <p>Deposit Rp480.000 + biaya awal Rp300.000</p>
-            </div>
+              <div className="therapy-deposit-note">
+                <span className="therapy-album-eyebrow">Minimal deposit 4 pertemuan</span>
+                <p>4 × Rp120.000 = Rp480.000</p>
+                <p>Deposit Rp480.000 + biaya awal Rp300.000</p>
+              </div>
 
-            <div className="therapy-total">
-              <span>Total biaya awal</span>
-              <strong>Rp780.000</strong>
-            </div>
+              <div className="therapy-total">
+                <span>Total biaya awal</span>
+                <strong>Rp780.000</strong>
+              </div>
 
-            <p className="therapy-pricing-footnote">
-              Durasi setiap sesi terapi adalah 60 menit.
-            </p>
-            <a className="therapy-pricing-cta" href={therapyInquiryForm} target="_blank" rel="noopener noreferrer">
-              Tanyakan paket terapi
-              <i className="ri-arrow-right-up-line" aria-hidden="true" />
-            </a>
-          </aside>
+              <p className="therapy-pricing-footnote">
+                Durasi setiap sesi terapi adalah 60 menit.
+              </p>
+              <a className="therapy-pricing-cta" href={therapyInquiryForm} target="_blank" rel="noopener noreferrer">
+                Tanyakan paket terapi
+                <i className="ri-arrow-right-up-line" aria-hidden="true" />
+              </a>
+            </aside>
+          </div>
         </div>
       </div>
     </section>

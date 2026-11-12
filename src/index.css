@@ -814,6 +814,11 @@ blockquote {
   gap: 24px;
 }
 
+.therapy-pricing-slot {
+  min-width: 0;
+  align-self: stretch;
+}
+
 .therapy-album {
   min-width: 0;
 }
@@ -1197,6 +1202,7 @@ blockquote {
   .therapy-pricing {
     position: static;
   }
+
 }
 
 @media (max-width: 640px) {
