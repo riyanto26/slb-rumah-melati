@@ -48,16 +48,16 @@ export default function About() {
     <section className="py-24 bg-[#fbfbfa] overflow-hidden" id="tentang">
       {/* Top Section - Mengikuti lebar Quick Info */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-          <div className="section-heading-stack lg:col-span-6">
+        <div className="about-intro mb-16">
+          <div className="section-heading-stack section-heading-stack-center text-center">
             <span className="section-badge">
               Tentang Kami
             </span>
-            <h2 className="font-georgia text-3xl sm:text-5xl font-normal text-gray-900 tracking-tight leading-[1.12]">
+            <h2 className="max-w-3xl font-georgia text-3xl sm:text-5xl font-normal text-gray-900 tracking-tight leading-[1.12]">
               Lingkungan aman untuk bertumbuh tanpa batas.
             </h2>
           </div>
-          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+          <div className="about-intro-copy space-y-4 text-sm sm:text-base text-gray-600 font-light leading-relaxed">
             <p>
               SLB Rumah Melati hadir dengan komitmen mendalam untuk memberikan pelayanan pendidikan khusus yang berfokus pada potensi unik setiap anak. Kami percaya bahwa setiap anak istimewa memiliki ritme dan cara belajarnya sendiri.
             </p>

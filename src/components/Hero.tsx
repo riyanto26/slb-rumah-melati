@@ -26,7 +26,7 @@ export default function Hero() {
             Daftar PPDB Sekarang <i className="ri-arrow-right-up-line" aria-hidden="true" />
           </a>
           <a
-            href="https://wa.me/6280000000000"
+            href="https://wa.me/6285779096272"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-landing-secondary"

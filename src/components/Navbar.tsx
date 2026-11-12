@@ -1,49 +1,27 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const navigationLinks = [
-  ['Beranda', '#beranda'],
-  ['Tentang Kami', '#tentang'],
-  ['Layanan Terapi', '#terapi'],
-  ['Program & Vokasi', '#program'],
-  ['Fasilitas', '#galeri'],
-  ['Kontak', '#kontak'],
+  { label: 'Beranda', href: '#beranda' },
+  { label: 'Tentang Kami', href: '#tentang' },
+  { label: 'Layanan Terapi', href: '#terapi' },
+  { label: 'Program & Vokasi', href: '#program' },
+  { label: 'Fasilitas', href: '#galeri' },
+  { label: 'Kontak', href: '#kontak' },
 ] as const
 
+const mobileNavigationLinks = [
+  { label: 'Beranda', href: '#beranda', icon: 'ri-home-5-line' },
+  { label: 'Tentang', href: '#tentang', icon: 'ri-heart-3-line' },
+  { label: 'Terapi', href: '#terapi', icon: 'ri-hand-heart-line' },
+  { label: 'Program', href: '#program', icon: 'ri-book-open-line' },
+  { label: 'Fasilitas', href: '#galeri', icon: 'ri-gallery-line' },
+] as const
+
+const registrationForm =
+  'https://docs.google.com/forms/d/e/1FAIpQLSenQF6Q0M-4jSSQfPbalEezsyK3-k0J1-uxV7SRqxEV3SW1iw/viewform?usp=publish-editor'
+
 export default function Navbar() {
-  const [isHidden, setIsHidden] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('beranda')
-  const previousScrollY = useRef(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      const scrollDifference = currentScrollY - previousScrollY.current
-
-      if (isMenuOpen || currentScrollY < 80 || scrollDifference < -4) {
-        setIsHidden(false)
-      } else if (scrollDifference > 4) {
-        setIsHidden(true)
-      }
-
-      previousScrollY.current = currentScrollY
-    }
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsMenuOpen(false)
-    }
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) setIsMenuOpen(false)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('keydown', handleKeyDown)
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('keydown', handleKeyDown)
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [isMenuOpen])
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -52,12 +30,11 @@ export default function Navbar() {
         return
       }
 
-      const currentSection = navigationLinks.reduce((active, [, href]) => {
+      const currentSection = navigationLinks.reduce((active, { href }) => {
         const section = document.getElementById(href.slice(1))
-        if (section && section.getBoundingClientRect().top <= 160) {
-          return href.slice(1)
-        }
-        return active
+        return section && section.getBoundingClientRect().top <= 160
+          ? href.slice(1)
+          : active
       }, 'beranda')
 
       setActiveSection(currentSection)
@@ -68,47 +45,34 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', updateActiveSection)
   }, [])
 
-  useEffect(() => {
-    if (!isMenuOpen) return
-
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isMenuOpen])
-
-  const closeMenu = () => setIsMenuOpen(false)
-
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 px-3 pt-4 transition-transform duration-300 ease-in-out sm:pt-5 ${
-          isHidden || isMenuOpen ? '-translate-y-full pointer-events-none' : 'translate-y-0'
-        }`}
-        onFocusCapture={() => setIsHidden(false)}
-      >
-        <nav className="relative mx-auto flex min-h-14 w-fit max-w-full items-center justify-center gap-3 rounded-full border border-white/20 bg-slate-950/55 px-3 text-white shadow-xl shadow-slate-950/15 backdrop-blur-2xl sm:gap-4 sm:px-5">
-          <a className="flex shrink-0 items-center gap-2 text-xs font-semibold tracking-tight sm:text-sm" href="#beranda">
+      <header className="fixed inset-x-0 top-0 z-50 hidden px-3 pt-4 sm:pt-5 lg:block">
+        <nav
+          className="desktop-navbar rounded-full border border-white/20 bg-slate-950/55 text-white shadow-xl shadow-slate-950/15 backdrop-blur-2xl"
+          aria-label="Navigasi utama"
+        >
+          <a className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight" href="#beranda">
             <img
               src="/logo.webp"
               alt="Logo SLB Rumah Melati"
               className="shrink-0"
               style={{ width: 32, height: 32, objectFit: 'contain' }}
             />
-            <span className="font-georgia hidden font-extrabold sm:inline">
+            <span className="font-georgia whitespace-nowrap font-extrabold">
               SLB Rumah Melati
             </span>
           </a>
 
-          <div className="hidden items-center gap-1 text-[11px] font-medium text-white/90 lg:flex">
-            {navigationLinks.map(([label, href]) => (
+          <div className="desktop-nav-menu text-[11px] font-medium tracking-wide xl:text-xs">
+            {navigationLinks.map(({ label, href }) => (
               <a
                 href={href}
                 aria-current={activeSection === href.slice(1) ? 'location' : undefined}
                 className={`whitespace-nowrap rounded-full border px-2.5 py-2 transition-colors ${
                   activeSection === href.slice(1)
                     ? 'border-white/25 bg-white/15 text-white shadow-inner'
-                    : 'border-transparent hover:border-white/20 hover:text-white'
+                    : 'border-transparent text-white/85 hover:border-white/20 hover:text-white'
                 }`}
                 key={href}
                 onClick={() => setActiveSection(href.slice(1))}
@@ -117,7 +81,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSenQF6Q0M-4jSSQfPbalEezsyK3-k0J1-uxV7SRqxEV3SW1iw/viewform?usp=publish-editor"
+              href={registrationForm}
               target="_blank"
               rel="noopener noreferrer"
               className="ml-1 inline-flex min-h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white/20 bg-[var(--primary)] px-4 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-xl transition-colors hover:bg-[var(--primary-dark)]"
@@ -125,80 +89,51 @@ export default function Navbar() {
               Daftar PPDB
             </a>
           </div>
-
-          <button
-            type="button"
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition-colors hover:bg-white/20 lg:hidden"
-            aria-label="Buka menu navigasi"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => {
-              setIsHidden(false)
-              setIsMenuOpen(true)
-            }}
-          >
-            <i className="ri-menu-line text-xl" aria-hidden="true" />
-          </button>
         </nav>
       </header>
 
-      {isMenuOpen && (
-        <div
-          id="mobile-navigation"
-          className="mobile-menu-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu navigasi"
+      <header className="mobile-header fixed inset-x-3 top-3 z-[60] flex items-center justify-between rounded-full border border-white/70 bg-white/85 px-3 py-1.5 shadow-lg backdrop-blur-2xl lg:hidden">
+        <a className="mobile-header-brand flex min-w-0 items-center gap-2" href="#beranda">
+          <img
+            src="/logo.webp"
+            alt=""
+            className="shrink-0 object-contain"
+          />
+          <span className="font-georgia truncate text-xs font-bold tracking-tight text-white">
+            SLB Rumah Melati
+          </span>
+        </a>
+        <a
+          href="#kontak"
+          className="mobile-contact-link grid shrink-0 place-items-center rounded-full border border-slate-200 bg-white/90 text-slate-800 shadow-sm transition-transform duration-300 hover:scale-105"
+          aria-label="Hubungi SLB Rumah Melati"
+          title="Kontak"
         >
-          <div className="mobile-menu-top">
-            <a className="mobile-menu-brand" onClick={closeMenu} href="#beranda">
-              <img src="/logo.webp" alt="" />
-              <span className="font-georgia">SLB Rumah Melati</span>
-            </a>
-            <button type="button" className="mobile-menu-close" onClick={closeMenu} aria-label="Tutup menu navigasi">
-              <i className="ri-close-line" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mobile-menu-body">
-            <div className="mobile-menu-heading">
-              <p>JELAJAHI SEKOLAH</p>
-              <h2>Temukan ruang<br />untuk bertumbuh.</h2>
-            </div>
-          <nav className="mobile-menu-links">
-            {navigationLinks.map(([label, href], index) => (
-              <a
-                onClick={() => {
-                  setActiveSection(href.slice(1))
-                  closeMenu()
-                }}
-                href={href}
-                aria-current={activeSection === href.slice(1) ? 'location' : undefined}
-                className={activeSection === href.slice(1) ? 'is-active' : undefined}
-                key={href}
-              >
-                <span className="mobile-menu-index">0{index + 1}</span>
-                <span>{label}</span>
-                <span className="mobile-menu-arrow" aria-hidden="true">
-                  <i className="ri-arrow-right-up-line" />
-                </span>
-              </a>
-            ))}
-          </nav>
-          </div>
-          <div className="mobile-menu-bottom">
-            <p>Pendidikan dengan kasih, tumbuh dengan percaya diri.</p>
-            <a
-              onClick={closeMenu}
-              href="https://docs.google.com/forms/d/e/1FAIpQLSenQF6Q0M-4jSSQfPbalEezsyK3-k0J1-uxV7SRqxEV3SW1iw/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mobile-menu-cta"
-            >
-              Daftar PPDB <i className="ri-arrow-right-line" aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-      )}
+          <i className="ri-contacts-line text-lg" aria-hidden="true" />
+        </a>
+      </header>
+
+      <nav
+        className="mobile-bottom-nav fixed bottom-3 left-1/2 z-[60] grid w-[calc(100%-24px)] max-w-[440px] -translate-x-1/2 grid-cols-5 items-center rounded-full border border-white/20 bg-slate-950/55 px-2 py-2 shadow-xl backdrop-blur-2xl transition-all duration-300 lg:hidden"
+        aria-label="Navigasi cepat"
+      >
+        {mobileNavigationLinks.map(({ label, href, icon }) => (
+          <a
+            href={href}
+            key={href}
+            aria-current={activeSection === href.slice(1) ? 'location' : undefined}
+            className={`flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-1 py-2 text-[9px] font-semibold transition-colors ${
+              activeSection === href.slice(1)
+                ? 'bg-white/15 text-white'
+                : 'text-white/80 hover:bg-white/10 hover:text-white'
+            }`}
+            onClick={() => setActiveSection(href.slice(1))}
+          >
+            <i className={`${icon} text-[19px] leading-none`} aria-hidden="true" />
+            <span className="whitespace-nowrap">{label}</span>
+          </a>
+        ))}
+      </nav>
     </>
   )
 }
