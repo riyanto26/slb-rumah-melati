@@ -96,8 +96,13 @@ export default function Services() {
               Kenali layanan dan lihat momen belajar anak dalam album kegiatan terapi kami.
             </p>
           </div>
-          <a className="service-cta" href={therapyInquiryForm} target="_blank" rel="noopener noreferrer">
-            Konsultasi layanan <i className="ri-arrow-right-up-line" aria-hidden="true" />
+          <a
+            className="service-cta"
+            href="https://wa.me/6285779096272"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Konsultasi layanan Terapi <i className="ri-arrow-right-up-line" aria-hidden="true" />
           </a>
         </div>
 
@@ -230,8 +235,7 @@ export default function Services() {
                 Durasi setiap sesi terapi adalah 60 menit.
               </p>
               <a className="therapy-pricing-cta" href={therapyInquiryForm} target="_blank" rel="noopener noreferrer">
-                Tanyakan paket terapi
-                <i className="ri-arrow-right-up-line" aria-hidden="true" />
+                Daftar Terapi                <i className="ri-arrow-right-up-line" aria-hidden="true" />
               </a>
             </aside>
           </div>

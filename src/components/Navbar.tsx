@@ -22,9 +22,12 @@ const registrationForm =
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('beranda')
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const updateActiveSection = () => {
+      setIsScrolled(window.scrollY >= 120)
+
       if (window.scrollY < 120) {
         setActiveSection('beranda')
         return
@@ -49,7 +52,9 @@ export default function Navbar() {
     <>
       <header className="fixed inset-x-0 top-0 z-50 hidden px-3 pt-4 sm:pt-5 lg:block">
         <nav
-          className="desktop-navbar rounded-full border border-white/20 bg-slate-950/55 text-white shadow-xl shadow-slate-950/15 backdrop-blur-2xl"
+          className={`desktop-navbar rounded-full border border-white/20 bg-slate-950/55 text-white shadow-xl shadow-slate-950/15 backdrop-blur-2xl${
+            isScrolled ? ' is-scrolled' : ''
+          }`}
           aria-label="Navigasi utama"
         >
           <a className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight" href="#beranda">
