@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
             <div><span className="footer-label">Jelajahi</span><a href="#beranda">Beranda</a><a href="#tentang">Tentang Kami</a><a href="#galeri">Fasilitas & Galeri</a></div>
             <div><span className="footer-label">Layanan</span><a href="#terapi">Layanan Terapi</a><a href="#program">Program & Vokasi</a><a href="#ppdb">Informasi PPDB</a></div>
-            <div><span className="footer-label">Hubungi kami</span><a href="mailto:slb.rumela04@gmail.com">slb.rumela04@gmail.com</a><p>Senin—Jumat<br />08.00—15.00 WIB</p></div>
+            <div><span className="footer-label">Hubungi kami</span><a href="mailto:slb.rumela04@gmail.com">slb.rumela04@gmail.com</a><p>Senin—Kamis<br />08.00—14.00 WIB<br />Jumat<br />08.00—11.00 WIB</p></div>
             <div>
               <span className="footer-label">Ikuti Kami</span>
               <a className="footer-social-link" href="https://www.instagram.com/slbrumahmelati?dlrf=MW1udmRjODVkb2pndA==" target="_blank" rel="noopener noreferrer">
